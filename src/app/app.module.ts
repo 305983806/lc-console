@@ -11,7 +11,6 @@ import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
 import { LoginModule } from './pages/login/login.module';
 import { LayoutModule } from './pages/layout/layout.module';
-import { LayouComponent } from './pages/layou/layou/layou.component';
 
 registerLocaleData(zh);
 
@@ -22,7 +21,6 @@ registerLocaleData(zh);
   // 模块内部Components/Directives/Pipes的列表，声明一下这个模块内部成员
   declarations: [
     AppComponent,
-    LayouComponent,
   ],
   // 导入其他module，其它module暴露的出的Components、Directives、Pipes等可以在本module的组件中被使用。
   imports: [
