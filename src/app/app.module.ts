@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
 import { LoginModule } from './pages/login/login.module';
 import { LayoutModule } from './pages/layout/layout.module';
+import { NoopInterceptor } from './services/http-interceptors/noop-interceptor';
+import { ExceptionModule } from './pages/exception/exception.module';
 
 registerLocaleData(zh);
 
@@ -30,11 +32,16 @@ registerLocaleData(zh);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     LoginModule,
-    LayoutModule
+    LayoutModule,
+    ExceptionModule
   ],
   // 指定应用程序的根级别需要使用的service。
-  providers: [{ provide: NZ_I18N, useValue: zh_CN }],
+  providers: [
+    { provide: NZ_I18N, useValue: zh_CN },
+    { provide: HTTP_INTERCEPTORS, useClass: NoopInterceptor, multi: true }
+  ],
   // 声明模块的主组件是什么
   bootstrap: [AppComponent]
 })

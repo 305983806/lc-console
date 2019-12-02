@@ -1,0 +1,11 @@
+{
+  "/test": {
+    "target": "http://192.168.206.25:8080",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/test": ""
+    },
+    "logLevel": "debug"
+  }
+}
