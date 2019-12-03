@@ -7,7 +7,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class TestService {
-  greetingUrl = '/test/test';
+  greetingUrl = '/test/greeting';
 
   constructor(
     private http: HttpClient
