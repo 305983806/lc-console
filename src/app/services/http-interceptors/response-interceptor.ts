@@ -5,7 +5,7 @@ import { map, catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
 @Injectable()
-export class NoopInterceptor implements HttpInterceptor {
+export class ResponseInterceptor implements HttpInterceptor {
 
   constructor(private router: Router) {}
 

@@ -11,8 +11,8 @@ import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
 import { LoginModule } from './pages/login/login.module';
 import { LayoutModule } from './pages/layout/layout.module';
-import { NoopInterceptor } from './services/http-interceptors/noop-interceptor';
 import { ExceptionModule } from './pages/exception/exception.module';
+import { ResponseInterceptor } from './services/http-interceptors/response-interceptor';
 
 registerLocaleData(zh);
 
@@ -40,7 +40,7 @@ registerLocaleData(zh);
   // 指定应用程序的根级别需要使用的service。
   providers: [
     { provide: NZ_I18N, useValue: zh_CN },
-    { provide: HTTP_INTERCEPTORS, useClass: NoopInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: ResponseInterceptor, multi: true }
   ],
   // 声明模块的主组件是什么
   bootstrap: [AppComponent]
